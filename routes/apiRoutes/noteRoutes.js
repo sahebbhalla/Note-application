@@ -11,7 +11,7 @@ router.get("/notes", (req, res) => {
   }
   res.json(results);
 });
-
+//delete Note 
 router.delete("/notes/:id", (req, res) => {
   console.log(req.params.id);
   if (req.params.id) {
