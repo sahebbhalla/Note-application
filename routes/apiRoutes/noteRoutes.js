@@ -5,7 +5,7 @@ const { json } = require("express");
 
 router.get("/notes", (req, res) => {
   let results = notes;
-
+ 
   if (req.query) {
     results = filterByQuery(req.query, results);
   }
@@ -13,7 +13,7 @@ router.get("/notes", (req, res) => {
 });
 //delete Note 
 router.delete("/notes/:id", (req, res) => {
-  console.log(req.params.id);
+ 
   if (req.params.id) {
     const result = deleteNote(req.params.id,notes)
     res.json(result);

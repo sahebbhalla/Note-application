@@ -91,7 +91,7 @@ const handleNoteDelete = (e) => {
     activeNote = {};
   }
 
-  deleteNote(noteId).then(() => {
+  deleteNote(noteId).then((answe) => {
     getAndRenderNotes();
     renderActiveNote();
   });
@@ -120,9 +120,8 @@ const handleRenderSaveBtn = () => {
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
-console.log(notes)
-  let jsonNotes = await notes.json();
-  console.log(jsonNotes);
+ let jsonNotes = await notes.json();
+  
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML =''));
     
@@ -176,7 +175,7 @@ console.log(notes)
 };
 
 // Gets notes from the db and renders them to the sidebar
-const getAndRenderNotes = () => getNotes().then((answer)=>renderNoteList(answer));
+const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
